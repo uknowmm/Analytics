@@ -35,7 +35,7 @@ export class LineChartComponent implements OnChanges {
       (accumulator: number, currentValue: number) => accumulator + currentValue,
       initialValue
     );
-    this.totalPopulation = sum;
+    this.totalPopulation = this.formatCompactNumber(sum);
   }
 
   drawChart() {
@@ -57,7 +57,20 @@ export class LineChartComponent implements OnChanges {
         data: lineData,
         label: 'Population Growth',
        })
+  }
 
+   formatCompactNumber(number: any) {
+    if (number < 1000) {
+      return number;
+    } else if (number >= 1000 && number < 1000000) {
+      return (number / 1000).toFixed(1) + "K";
+    } else if (number >= 1_000_000 && number < 1000000000) {
+      return (number / 1_000_000).toFixed(1) + "M";
+    } else if (number >= 1_000_000_000 && number < 1000000000000) {
+      return (number / 1_000_000_000).toFixed(1) + "B";
+    } else if (number >= 1_000_000_000_000 && number < 1000000000000000) {
+      return (number / 1_000_000_000_000).toFixed(1) + "T";
+    }
   }
 
 

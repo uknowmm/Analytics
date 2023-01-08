@@ -1,0 +1,7 @@
+
+    <mat-select [typeaheadDebounceInterval]="10" (selectionChange)="onSelectionChange($event)">
+      <mat-option *ngFor="let yr of years" [value]="yr">
+        Year - {{yr}}
+      </mat-option>
+    </mat-select>
+

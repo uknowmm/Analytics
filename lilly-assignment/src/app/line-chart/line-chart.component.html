@@ -1,0 +1,16 @@
+<div class="layout">
+    <div>
+        <div class="head-1">
+            World population
+           <p *ngIf="years"> ({{years}}) </p>
+        </div>
+        <div  class="head-2">
+           <p class="tp"> {{totalPopulation}} <sub>Bn</sub></p>
+        </div>
+    </div>
+    <div class="sub-layout">
+        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+            [legend]="true" [chartType]="'line'">
+        </canvas>
+    </div>
+</div>
